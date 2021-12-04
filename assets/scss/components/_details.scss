@@ -1,0 +1,133 @@
+.sub-menu {
+  @include flex($jc: space-around);
+  &-item {
+    @include flex($jc: center, $ai: center, $direction: column);
+    text-align: center;
+    img {
+      max-width: 100%;
+    }
+  }
+}
+.content {
+  margin-top: 15px;
+  padding: 50px 20px;
+  width: 100%;
+  background: $section-light;
+  border-radius: $radius;
+  @include mq("tablet") {
+    padding: 110px 110px 20px 110px;
+  }
+  .description {
+    @include flex($direction: column);
+    @include mq("tablet") {
+      @include flex();
+    }
+    &-text {
+      color: $first-color;
+      text-align: center;
+      margin-bottom: 20px;
+      @include mq("tablet") {
+        margin-right: 35px;
+        text-align: left;
+        margin-bottom: 0;
+      }
+      h1 {
+        font-weight: $font-regular;
+        font-size: $biggest-font-size;
+        @include mq("tablet") {
+          font-size: 3.6rem;
+        }
+      }
+      p {
+        text-align: center;
+        @include mq("tablet") {
+          width: 246px;
+          text-align: left;
+        }
+      }
+    }
+    &-image {
+      @include flex();
+      img {
+        width: 100px;
+        height: auto;
+        position: relative;
+        &:first-child {
+          animation: floating1 4s infinite;
+        }
+        &:last-child {
+          animation: floating2 4s infinite;
+        }
+      }
+    }
+  }
+  &-scroll {
+    @include flex($direction: column);
+    margin-top: 40px;
+    span {
+      margin-bottom: 10px;
+    }
+  }
+}
+.features {
+  margin-top: 3rem;
+  margin-bottom: 10rem;
+  @include flex();
+  &-text {
+    text-align: center;
+    margin-right: 15px;
+    &-box {
+      margin-bottom: 25px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      h2 {
+        font-size: $biggest-font-size;
+      }
+      p {
+        width: 150px;
+      }
+    }
+  }
+  &-image {
+    img {
+      width: 250px;
+      animation: heartbeat 1s infinite;
+    }
+  }
+}
+
+@keyframes floating1 {
+  0% {
+    top: -20px;
+  }
+  50% {
+    top: 20px;
+  }
+  100% {
+    top: -20px;
+  }
+}
+@keyframes floating2 {
+  0% {
+    bottom: -20px;
+  }
+  50% {
+    bottom: 20px;
+  }
+  100% {
+    bottom: -20px;
+  }
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.8);
+  }
+}

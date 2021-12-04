@@ -1,0 +1,27 @@
+.footer {
+  width: 100%;
+  box-shadow: 0 -2px 4px #1d1d1f33;
+
+  &-content {
+    @include flex($direction: column);
+    padding-bottom: 5px;
+    @include mq("tablet") {
+      @include flex($jc: space-between);
+      padding-bottom: 0;
+    }
+    p {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+    .social-media {
+      @include flex();
+      a {
+        font-size: 18px;
+        margin-right: 5px;
+        &:last-child {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}

@@ -1,25 +1,31 @@
-/* show menu */
-const showMenu = (toggleId, navId) => {
-    const toggle = document.getElementById(toggleId),
-          nav    = document.getElementById(navId);
-
-    if(toggle && nav) {
-        toggle.addEventListener('click', () => {
-            nav.classList.toggle('show')
-        })
-    }
-}
-
-showMenu('nav-toggle', 'nav-menu')
-
+const btnMobileMenu = document.getElementById("btn-menu");
+const mobileMenu = document.getElementById("nav-menu-list");
 /*=============== REMOVE MENU MOBILE ===============*/
-const navLink = document.querySelectorAll('.nav__link')
+const navLink = document.querySelectorAll(".nav-menu-list a");
 
-function linkAction(){
-    const navMenu = document.getElementById('nav-menu')
-    // When we click on each nav__link, we remove the show-menu class
-    navMenu.classList.remove('show')
+function linkAction() {
+  const navMenu = document.getElementById("nav-menu-list");
+  // When we click on each nav__link, we remove the show-menu class
+  navMenu.classList.remove("show-menu");
+  btnMobileMenu.classList.remove("rotate-90");
 }
 
-navLink.forEach(n => n.addEventListener('click', linkAction))
+navLink.forEach((n) => n.addEventListener("click", linkAction));
 
+/*=============== MOBILE MENU TOGGLE ===============*/
+
+btnMobileMenu.addEventListener("click", () => {
+  btnMobileMenu.classList.toggle("rotate-90");
+  mobileMenu.classList.toggle("show-menu");
+});
+
+/* ACTIVE CLASS ADD */
+const nav_links = mobileMenu.querySelectorAll(".nav-link");
+let i = 0;
+for (i; i < nav_links.length; i++) {
+  nav_links[i].addEventListener("click", function () {
+    let current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}

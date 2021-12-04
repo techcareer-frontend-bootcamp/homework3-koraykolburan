@@ -1,0 +1,72 @@
+.header {
+  width: 100%;
+  height: $header-height;
+  background: $body-color;
+  box-shadow: 0 0 4px #1d1d1f33;
+  z-index: 999;
+  position: sticky;
+  top: -1px;
+  .nav {
+    position: relative;
+    @include flex($jc: space-between);
+    .logo {
+      font-weight: $font-bold;
+    }
+    &-menu {
+      @include flex($jc: center);
+
+      &-list {
+        @include flex($direction: column);
+        width: 100%;
+        position: absolute;
+        top: -6rem;
+        margin-top: -6px;
+        left: 0;
+        background-color: $white-color;
+        border-bottom-right-radius: $radius;
+        border-bottom-left-radius: $radius;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        @include mq("tablet") {
+          @include flex($direction: row);
+          padding-top: 0;
+          padding-bottom: 0;
+          position: static;
+          background-color: transparent;
+          border-bottom-right-radius: 0;
+          border-bottom-left-radius: 0;
+          margin-top: 0px;
+        }
+        a {
+          padding: 10px;
+          @include mq("tablet") {
+            padding: 0;
+            margin-right: 8px;
+          }
+          &:hover {
+            color: $second-color;
+          }
+        }
+      }
+    }
+    .btn-nav {
+      background: $first-color;
+      color: $white-color;
+      border-radius: 360px;
+      padding: 6px 12px;
+      &:hover {
+        background: #353538;
+      }
+    }
+    .btn-mobile-menu {
+      margin-right: 15px;
+      display: block;
+      @include mq("tablet") {
+        display: none;
+      }
+    }
+  }
+}
+.show-menu {
+  top: $header-height !important;
+}
